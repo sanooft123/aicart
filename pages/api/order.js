@@ -8,9 +8,10 @@ export default async function handler(req, res) {
     console.log(req.body);
     const { orderId, item } = req.body;
     const order = await Order.findOne({ orderId: orderId });
-    let orderItems = [...order.items, item];
+
     let totalPrice = 0;
     if (order) {
+      let orderItems = [...order.items, item];
       if (item === "Lays") {
         totalPrice += 5;
       } else if (item === "Chicken Noodles") {
@@ -39,8 +40,7 @@ export default async function handler(req, res) {
     }
 
     return res.send({ success: true });
-  }
-  else if (req.method === "GET") {
+  } else if (req.method === "GET") {
     const { orderId } = req.query;
     const order = await Order.findOne({ orderId: orderId });
     return res.send({ order: order, success: true });
