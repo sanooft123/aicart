@@ -40,7 +40,7 @@ export default async function handler(req, res) {
 
     return res.send({ success: true });
   }
-  if (req.method === "GET") {
+  else if (req.method === "GET") {
     const { orderId } = req.query;
     const order = await Order.findOne({ orderId: orderId });
     return res.send({ order: order, success: true });
