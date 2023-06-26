@@ -16,6 +16,10 @@ export default async function handler(req, res) {
         totalPrice += 5;
       } else if (item === "Chicken Noodles") {
         totalPrice += 100;
+      }else if (item === "Park Avenue") {
+        totalPrice += 225;
+      }else if (item === "Peanut Cream") {
+        totalPrice += 140;
       }
       await Order.updateOne(
         { orderId: orderId },
@@ -31,6 +35,10 @@ export default async function handler(req, res) {
         totalPrice += 5;
       } else if (item === "Chicken Noodles") {
         totalPrice += 100;
+      }else if (item === "Park Avenue") {
+        totalPrice += 225;
+      }else if (item === "Peanut Cream") {
+        totalPrice += 140;
       }
       await Order.create({
         orderId: orderId,
