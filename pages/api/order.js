@@ -6,7 +6,7 @@ connectToDatabase();
 export default async function handler(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
-    const { orderId, item } = req.body;
+    const { orderId, item } = JSON.parse(req.body);
     const order = await Order.findOne({ orderId: orderId });
 
     let totalPrice = 0;
